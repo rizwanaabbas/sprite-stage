@@ -57,6 +57,10 @@ OpenVoice V2 shifts tone. MeloTTS speaks the words with a British English base. 
 
 If a line is still shorter than its mouth window, lower the MeloTTS speed or stretch with `atempo` below 1. Do not speed a line up to fill a gap.
 
+## Cost and machine
+
+A 1-minute film is about 300k–500k input tokens and 60k–100k output tokens when the sprites already exist, or about 1.0M–1.5M input and 200k–300k output when you also make sprites and revise once. Dollar figures for Claude, Codex, and Cursor, and the OpenVoice CPU requirements (8 GB RAM, Python 3.11–3.13, no GPU required), are in [COSTS.md](COSTS.md).
+
 ## Credits
 
 OpenVoice and MeloTTS are MIT software from MyShell. ffmpeg draws the frames. PyTorch runs the voice models. Checkpoints come from the public `myshell-ai/OpenVoiceV2` model. Full links are in the README.

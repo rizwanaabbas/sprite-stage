@@ -29,6 +29,8 @@ python3 render.py
 
 Agents should follow [`SKILL.md`](SKILL.md) and [`AGENTS.md`](AGENTS.md). Do not commit API keys. This repo has none.
 
+A 1-minute film on the included cast is roughly **$0.40–$3** of agent tokens on Claude Haiku, Sonnet, or Cursor Plus, and about **$2–$6** on Codex or Opus if the agent also draws new sprites and revises once. The frame render is free and local. Full table, plus the OpenVoice machine requirements: [`COSTS.md`](COSTS.md).
+
 ## Make your own
 
 1. Add a full-body reference image per character in [`characters/`](characters/).
