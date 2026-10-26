@@ -29,12 +29,12 @@ python3 render.py
 
 Agents should follow [`SKILL.md`](SKILL.md) and [`AGENTS.md`](AGENTS.md). Do not commit API keys. This repo has none.
 
-A 1-minute film on the included cast is roughly **$0.40–$3** of agent tokens on Claude Haiku, Sonnet, or Cursor Plus, and about **$2–$6** on Codex or Opus if the agent also draws new sprites and revises once. The frame render is free and local. Full table, plus the OpenVoice machine requirements: [`COSTS.md`](COSTS.md).
+A 1-minute film on the included cast is roughly **$0.40–$3** of agent tokens. New sprites from a **free image tool add $0**. The same sheets on the paid Gemini image API add about **$1.50**. Full table: [`COSTS.md`](COSTS.md). Sample prompts: [`examples/prompts.md`](examples/prompts.md).
 
 ## Make your own
 
 1. Add a full-body reference image per character in [`characters/`](characters/).
-2. Ask the agent for sprite sheets. Prompts are in [`examples/prompts.md`](examples/prompts.md).
+2. Ask the agent for sprite sheets. Free tools use the sample prompts in [`examples/prompts.md`](examples/prompts.md). Gemini is optional and only if `GEMINI_API_KEY` is already set. The key is never stored here.
 3. Hand the agent a reference video. It keeps the premise and writes an original script. Names, logos, lyrics, and the source's spoken lines stay out of the prompts and off the screen.
 4. The agent renders a new film and mixes voices so each line lasts as long as the mouth is open.
 
@@ -45,6 +45,10 @@ A 1-minute film on the included cast is roughly **$0.40–$3** of agent tokens o
 - `renders/long-slide.mp4` — the sample, picture and voices together
 - `render.py` — the film. One climber, one rider, palms, smooth per-frame motion
 - `voices.py` — British OpenVoice lines, one tone per character
+
+## Spread the word
+
+Guest drafts for Dev.to, Show HN, Reddit, and newsletters are in [`articles/`](articles/). The map of where each one belongs is [`articles/WHERE-TO-POST.md`](articles/WHERE-TO-POST.md).
 
 ## Credits
 

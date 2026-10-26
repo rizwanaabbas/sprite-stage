@@ -1,5 +1,6 @@
 .venv/
 frames/
+sprites/prompts/
 vendor/
 .ready
 __pycache__/

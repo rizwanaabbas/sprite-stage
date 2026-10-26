@@ -4,7 +4,7 @@ Prices below are public list rates checked on 26 October 2026. A real bill moves
 
 ## Agent tokens for 1 minute
 
-These counts are the language-model work: reading the skill, writing the timeline, writing the lines, and one or two picture fixes. They do not include sprite-image calls. A new cast of sprite sheets is a separate image-model bill.
+These counts are the language-model work: reading the skill, writing the timeline, writing the lines, and one or two picture fixes. Sprite images are a separate line in the table under this one. A free image tool sets that line to $0.
 
 | Film | Input tokens | Output tokens |
 | --- | ---: | ---: |
@@ -15,15 +15,19 @@ The dollar table uses the middle of each range: **400k input / 80k output** for 
 
 ## Rough cost
 
-| Where you run the agent | Existing cast, 1 minute | New sprites plus one revision |
-| --- | ---: | ---: |
-| Claude Haiku 5.5 (API, prompts over 100k tokens) | $0.40 | $1.20 |
-| Claude Sonnet 5.5 (API) | $1.60 | $4.90 |
-| Claude Opus 5.5 (API) | $3.20 | $9.80 |
-| Codex, `gpt-5.3-codex` API | $1.80 | $5.60 |
-| Codex inside ChatGPT Plus ($20/month) | inside the plan | inside the plan for a single film |
-| Cursor Plus ($8/month), Grok 4.7 | about $1.30 of the weekly pool | about $3.90 of the weekly pool |
-| Cursor Premium ($30/month), Claude or Codex | same as that model's API row, from prepaid credit | same as that model's API row |
+| Where you run the agent | Existing cast, 1 minute | New sprites, free image tool | New sprites, paid Gemini image API |
+| --- | ---: | ---: | ---: |
+| Claude Haiku 5.5 (API, prompts over 100k tokens) | $0.40 | $1.20 | $2.70 |
+| Claude Sonnet 5.5 (API) | $1.60 | $4.90 | $6.40 |
+| Claude Opus 5.5 (API) | $3.20 | $9.80 | $11.30 |
+| Codex, `gpt-5.3-codex` API | $1.80 | $5.60 | $7.10 |
+| Codex inside ChatGPT Plus ($20/month) | inside the plan | inside the plan for a single film | plan plus about $1.50 of images |
+| Cursor Plus ($8/month), Grok 4.7 | about $1.30 of the weekly pool | about $3.90 of the weekly pool | about $3.90 of the pool plus $1.50 of images |
+| Cursor Premium ($30/month), Claude or Codex | same as that model's API row, from prepaid credit | same as that model's API row | API row plus about $1.50 of images |
+
+The free-tool column is the agent only. `scripts/free_sprites.py --provider prompt` writes the prompts, and a free image tool paints the sheets, so the images add **$0**.
+
+The paid column adds about **$1.50** for 25 sheets (5 people × walk, front, back, talking, sitting). Gemini 3.1 Flash Image list price is about $0.045–$0.067 per image. Source: [Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing). Those image models show no free API tier. A key in `GEMINI_API_KEY` is billed unless that project includes the model. Google AI Studio itself can still be used with the same sample prompts at no charge when the project is on the free studio allowance.
 
 Rates used:
 

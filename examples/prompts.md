@@ -43,7 +43,64 @@ Use the included wardrobe. Add palm trees. Render renders/long-slide.mp4
 and mix the OpenVoice lines onto the same pictures.
 ```
 
-## 3. A new story with the same cast
+## 3. Free sprite sheets, no image bill
+
+```text
+Use the Sprite Stage skill.
+
+Make free sprite sheets for Lina. Do not spend money on an image API.
+Run:
+python3 scripts/free_sprites.py --provider prompt --name lina --action walk,front,back,talking,sitting
+
+Then send each prompt file in sprites/prompts/ to a free image tool, with the
+two attached pictures named in that file. Save the results as
+sprites/lina-walk.png, sprites/lina-front.png, sprites/lina-back.png,
+sprites/lina-talking.png, and sprites/lina-sitting.png.
+Magenta background #FF00FF. Four equal cells. Same clothes as characters/lina.jpg.
+```
+
+## 4. Sample prompt for any free image tool
+
+Attach `characters/lina.jpg`, then `sprites/pose-guide.png`, then paste:
+
+```text
+IMAGE 1 is the identity reference for Lina. IMAGE 2 is a four-cell pose map.
+Ignore every word, label, color dot, and extra pose on IMAGE 1.
+Paint a new sprite sheet of that same character only. Copy the clothes and hair from IMAGE 1.
+Fully clothed. No logos, letters, or watermarks.
+ONE wide image, exactly four equal cells in a single horizontal row, matching IMAGE 2 cell for cell.
+Side view, facing right, walking in place.
+Cell 1 long stride, both feet down.
+Cell 2 feet together, one foot lifted.
+Cell 3 the opposite long stride, both feet down.
+Cell 4 feet together, the other foot lifted.
+Same height and the same foot line in every cell.
+Background outside the figure is flat pure magenta #FF00FF.
+No white frame, no ground line, no text, no numbers, no grid, no second person.
+```
+
+Swap the pose guide and the cell lines for the other actions:
+
+- Front: attach `sprites/pose-guide-front.png`. Both eyes visible. Same walk beat.
+- Back: attach `sprites/pose-guide-back.png`. Back of the head, no face.
+- Talking: attach `sprites/pose-guide-talking.png`. Body still. Mouth closed, a little open, wide open, a little open.
+- Sitting: attach `sprites/pose-guide-sitting.png`. Already sitting, fully clothed, four small shifts.
+
+## 5. Gemini, only if the user already has a key
+
+```text
+Use the Sprite Stage skill.
+
+The user has set GEMINI_API_KEY in the environment. Do not ask them to paste it.
+Do not write it into any file.
+Run:
+python3 scripts/free_sprites.py --provider gemini --name lina --action walk,front,back,talking,sitting
+
+If the call says the image model is not on the free tier, stop and switch to the
+free prompt pack in section 3. Sprite images from that path cost $0.
+```
+
+## 6. A new story with the same cast
 
 ```text
 Use the Sprite Stage skill.

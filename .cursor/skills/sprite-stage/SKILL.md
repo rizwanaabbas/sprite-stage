@@ -40,6 +40,24 @@ Wardrobe and voice locks for the included cast are in [characters/CAST.md](chara
 
 1. Put each character's reference image in `characters/`. One person per file. Front view, full body, plain background.
 2. Generate sprite sheets into `sprites/{name}-{action}.png`. Actions used by the sample renderer: `walk`, `front`, `talking`, `back`, `sitting`. Sheets are four cells side by side on magenta (`#FF00FF`).
+
+## Free sprites
+
+Default to a free image tool. That makes the sprite images **$0**. The agent-token table in [COSTS.md](COSTS.md) still applies.
+
+```bash
+python3 scripts/free_sprites.py --provider prompt --name lina --action walk,front,back,talking,sitting
+```
+
+Each file in `sprites/prompts/` names the two pictures to attach and the prompt to paste. Sample prompts are in [examples/prompts.md](examples/prompts.md). Save the tool's image as `sprites/{name}-{action}.png`.
+
+Use Gemini only when `GEMINI_API_KEY` is already in the environment. Never ask for the key, never print it, and never write it into the repo.
+
+```bash
+python3 scripts/free_sprites.py --provider gemini --name lina --action walk
+```
+
+If that model is outside the key's free allowance, stop and use `--provider prompt`.
 3. Write original lines in `voices.py`, then `.venv/bin/python voices.py`. Pitch uses the file's real sample rate, then each line is slowed to about two words a second so the mouth can stay open for the whole line.
 4. Point `render.py` `NAMES` and `HEIGHT` at the cast. Build the timeline so only one person climbs and only one person slides. Call `python3 render.py`. Mouths open for `duration + 0.2s`. The slide cheer starts when the slide starts.
 
