@@ -78,7 +78,9 @@ If a line is still shorter than its mouth window, lower the MeloTTS speed or str
 
 ## Cost and machine
 
-A 1-minute film is about 300k–500k input tokens and 60k–100k output tokens when the sprites already exist, or about 1.0M–1.5M input and 200k–300k output when you also make sprites and revise once. Dollar figures for Claude, Codex, and Cursor, and the OpenVoice CPU requirements (8 GB RAM, Python 3.11–3.13, no GPU required), are in [COSTS.md](COSTS.md).
+A 1-minute film is about 300k–500k input tokens and 60k–100k output tokens when the sprites already exist, or about 1.0M–1.5M input and 200k–300k output when you also make sprites and revise once. Dollar figures for OpenCode, Claude, Codex, and Cursor, and the OpenVoice CPU requirements (8 GB RAM, Python 3.11–3.13, no GPU required), are in [COSTS.md](COSTS.md).
+
+When the person wants the film to cost nothing, run this skill inside [OpenCode](https://opencode.ai) on a model marked Free, and make the sheets with `--provider prompt`. That agent line is $0 while the film stays inside the daily free-model quota. A paid model on the same app bills that provider.
 
 ## Credits
 

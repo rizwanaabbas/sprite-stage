@@ -31,6 +31,8 @@ Agents should follow [`SKILL.md`](SKILL.md) and [`AGENTS.md`](AGENTS.md). Do not
 
 A 1-minute film on the included cast is roughly **$0.40–$3** of agent tokens on Claude Haiku, Sonnet, or Cursor Plus, and about **$2–$6** on Codex or Opus if the agent also draws new sprites and revises once. The frame render is free and local. Full table, plus the OpenVoice machine requirements, is below. A free image tool sets the sprite-image line to **$0**.
 
+The route that stays at **$0** is [OpenCode](https://opencode.ai) on a model marked Free, plus that free image tool, plus the local render. OpenCode itself is free. Stay on a Free model for the whole film. Those models have a daily request quota.
+
 ## Make your own
 
 1. Add a full-body reference image per character in [`characters/`](characters/).
@@ -131,7 +133,9 @@ If a line is still shorter than its mouth window, lower the MeloTTS speed or str
 
 ## Cost and machine
 
-A 1-minute film is about 300k–500k input tokens and 60k–100k output tokens when the sprites already exist, or about 1.0M–1.5M input and 200k–300k output when you also make sprites and revise once. Dollar figures for Claude, Codex, and Cursor, and the OpenVoice CPU requirements (8 GB RAM, Python 3.11–3.13, no GPU required), are in [COSTS.md](COSTS.md).
+A 1-minute film is about 300k–500k input tokens and 60k–100k output tokens when the sprites already exist, or about 1.0M–1.5M input and 200k–300k output when you also make sprites and revise once. Dollar figures for OpenCode, Claude, Codex, and Cursor, and the OpenVoice CPU requirements (8 GB RAM, Python 3.11–3.13, no GPU required), are in [COSTS.md](COSTS.md).
+
+When the person wants the film to cost nothing, run this skill inside [OpenCode](https://opencode.ai) on a model marked Free, and make the sheets with `--provider prompt`. That agent line is $0 while the film stays inside the daily free-model quota. A paid model on the same app bills that provider.
 
 ## Credits
 
@@ -298,10 +302,21 @@ These counts are the language-model work: reading the skill, writing the timelin
 
 The dollar table uses the middle of each range: **400k input / 80k output** for a film on the existing cast, and **1.2M input / 250k output** when the agent also builds sprites and revises once.
 
+## The route that stays at $0
+
+Use [OpenCode](https://opencode.ai) and pick a model whose price is **Free**. The OpenCode app is free. Those models are $0 per token and work without an account. Pair them with a free image tool and the local renderer:
+
+1. In OpenCode, stay on a Free model for the whole film. On 26 October 2026 the free list includes Big Pickle, GLM-5.3-Flash Free, DeepSeek V4.1 Flash Free, Beam Free, Flint 40B Free, MiMo-V2.6-Flash Free, Nemotron 3 Ultra Free, Nemotron 3.5 Lightning Free, and Nemotron 3.5 Super VL Free. The list is limited-time and each free model has a daily request quota.
+2. Make the sheets with `python3 scripts/free_sprites.py --provider prompt`, then a free image tool. Google AI Studio on its free allowance is the other $0 picture path.
+3. Run `bash setup.sh`, then `python3 render.py`. Frames and OpenVoice voices stay on your machine.
+
+That combination is **$0** while the film fits the daily free-model quota. If the quota runs out, wait until the next day. Switching to Claude, Codex, Cursor, or OpenCode Zen starts that provider's bill. OpenCode Go is a separate $10/month plan.
+
 ## Rough cost
 
 | Where you run the agent | Existing cast, 1 minute | New sprites, free image tool | New sprites, paid Gemini image API |
 | --- | ---: | ---: | ---: |
+| OpenCode, a model marked Free | $0 | $0 | about $1.50 of images |
 | Claude Haiku 5.5 (API, prompts over 100k tokens) | $0.40 | $1.20 | $2.70 |
 | Claude Sonnet 5.5 (API) | $1.60 | $4.90 | $6.40 |
 | Claude Opus 5.5 (API) | $3.20 | $9.80 | $11.30 |
@@ -320,8 +335,9 @@ Rates used:
 - Claude Sonnet 5.5: $2 / $10. Claude Opus 5.5: $4 / $20. Same page.
 - Codex `gpt-5.3-codex`: $1.75 / $14 per million input / output tokens. Source: [OpenAI API pricing](https://developers.openai.com/api/docs/pricing). ChatGPT Plus is $20/month and includes Codex. Source: [Codex pricing](https://developers.openai.com/codex/pricing/).
 - Cursor Plus is $8/month and spends the weekly pool on Cursor models. Grok 4.7 list rate is $2 input and $6 output per million tokens. Premium is $30/month and bills Claude or Codex at their API list price from prepaid credit. Source: [Cursor models and pricing](https://cursor.com/docs/models-and-pricing).
+- OpenCode the app is free, and models marked Free are $0. They work without an account, with a daily request quota, and the free lineup changes. Source: [OpenCode](https://opencode.ai/) and the model table on [OpenCode Zen](https://opencode.ai/docs/zen/).
 
-A tidy 1-minute film on the included cast usually fits in Cursor Plus or ChatGPT Plus. Opus, or a long retry loop, is the path that climbs toward $10.
+The **$0** route is OpenCode on a Free model, a free image tool, and the local frame render. A tidy 1-minute film on the included cast also fits in Cursor Plus or ChatGPT Plus. Opus, or a long retry loop, is the path that climbs toward $10.
 
 ## OpenVoice system requirements
 
