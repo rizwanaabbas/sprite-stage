@@ -1,0 +1,15 @@
+.venv/
+frames/
+vendor/
+.ready
+__pycache__/
+*.pyc
+.env
+.env.*
+secrets/
+*.key
+*.pem
+audio/fit/
+audio/_raw.wav
+audio/_colored.wav
+audio/*.slow.wav
