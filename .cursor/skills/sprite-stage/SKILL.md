@@ -58,6 +58,7 @@ python3 scripts/free_sprites.py --provider gemini --name lina --action walk
 ```
 
 If that model is outside the key's free allowance, stop and use `--provider prompt`.
+
 3. Write original lines in `voices.py`, then `.venv/bin/python voices.py`. Pitch uses the file's real sample rate, then each line is slowed to about two words a second so the mouth can stay open for the whole line.
 4. Point `render.py` `NAMES` and `HEIGHT` at the cast. Build the timeline so only one person climbs and only one person slides. Call `python3 render.py`. Mouths open for `duration + 0.2s`. The slide cheer starts when the slide starts.
 
